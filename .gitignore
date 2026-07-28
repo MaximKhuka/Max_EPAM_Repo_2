@@ -4,3 +4,5 @@ node_modules/
 coverage/
 mochawesome-report/
 wdio-logs/
+allure-results/
+allure-report/
