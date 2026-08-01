@@ -6,3 +6,4 @@ mochawesome-report/
 wdio-logs/
 allure-results/
 allure-report/
+error-shots/

@@ -1,8 +1,18 @@
 const BasePage = require('./BasePage');
+const CartWidget = require('../components/CartWidget');
 
 class InventoryPage extends BasePage {
+  constructor() {
+    super();
+    this.cartWidget = new CartWidget();
+  }
+
   get sortDropdown() {
     return $("//select[@data-test='product-sort-container']");
+  }
+
+  get inventoryItems() {
+    return $$("//div[@data-test='inventory-item']");
   }
 
   get itemPrices() {
@@ -10,7 +20,7 @@ class InventoryPage extends BasePage {
   }
 
   get cartBadge() {
-    return $("//span[@class='shopping_cart_badge']");
+    return this.cartWidget.badge;
   }
 
   get burgerMenuButton() {
@@ -73,4 +83,4 @@ class InventoryPage extends BasePage {
   }
 }
 
-module.exports = new InventoryPage();
+module.exports = InventoryPage;

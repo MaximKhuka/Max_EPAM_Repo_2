@@ -1,10 +1,4 @@
-const loginPage = require('../pages/LoginPage');
-const inventoryPage = require('../pages/InventoryPage');
-
-const pages = {
-  login: loginPage,
-  inventory: inventoryPage,
-};
+const pages = require('../pages');
 
 class PageFactory {
   static getPage(pageName) {
