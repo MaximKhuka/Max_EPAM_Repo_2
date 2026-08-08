@@ -1,4 +1,4 @@
-Task description
+# Task description
 
 "Inventory Logic" Flow
 Focus: Data validation, sorting algorithms, and state management.
@@ -15,18 +15,18 @@ UC-2 Cart State Logic:
 - Remove one item via the "Remove" button on the Inventory page.
 - Verify the cart badge updates to "1".
 
-Technical Requirements:
-Tool: WebDriverIO.
-Browsers: Firefox, Edge (Run in Parallel).
-Pattern: Page Object Model (POM).
-Locators: XPath (Focus on text-based selection).
-Parametrization: Use Data Provider for the items being added/removed.
-Documentation: Add a README.md explaining the sorting validation logic.
+### Technical Requirements:
+Tool: WebDriverIO  
+Browsers: Firefox, Edge (Run in Parallel)  
+Pattern: Page Object Model (POM)  
+Locators: XPath (Focus on text-based selection)  
+Parametrization: Use Data Provider for the items being added/removed  
+Documentation: Add a README.md explaining the sorting validation logic
 
 # Inventory Logic — WebdriverIO + Cucumber Test Suite
 
 ## Project structure
-
+```
 features/
 ├── sorting-validation.feature
 └── cart-state-logic.feature
@@ -47,7 +47,7 @@ src/
 ├── sorting.steps.js
 └── cart.steps.js
 wdio.conf.js
-
+```
 Naming convention: class files use PascalCase matching their class name (e.g. `InventoryPage.js`); everything else uses kebab-case with a purpose suffix (`.feature`, `.steps.js`).
 
 ## BDD approach (Cucumber)
