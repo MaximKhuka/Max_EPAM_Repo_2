@@ -13,10 +13,21 @@ exports.config = {
     capabilities: [
         {
             browserName: 'firefox',
-            browserVersion: 'latest',
             acceptInsecureCerts: true,
             'moz:firefoxOptions': {
-                args: ['-width=1920', '-height=1080']
+                binary: 'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
+                args: ['-width=1920', '-height=1080', '-no-remote'],
+                prefs: {
+                    'browser.shell.checkDefaultBrowser': false,
+                    'browser.startup.homepage': 'about:blank',
+                    'startup.homepage_welcome_url': 'about:blank',
+                    'startup.homepage_welcome_url.additional': 'about:blank',
+                    'browser.aboutwelcome.enabled': false,
+                    'app.update.auto': false,
+                    'app.update.enabled': false,
+                    'datareporting.policy.dataSubmissionEnabled': false,
+                    'toolkit.telemetry.reportingpolicy.firstRun': false
+                }
             }
         },
         {

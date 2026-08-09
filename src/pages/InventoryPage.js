@@ -76,9 +76,11 @@ class InventoryPage extends BasePage {
   }
 
   async resetAppState() {
+    await this.burgerMenuButton.waitForClickable();
     await this.burgerMenuButton.click();
     await this.resetAppStateLink.waitForClickable();
     await this.resetAppStateLink.click();
+    await this.closeMenuButton.waitForClickable();
     await this.closeMenuButton.click();
   }
 }

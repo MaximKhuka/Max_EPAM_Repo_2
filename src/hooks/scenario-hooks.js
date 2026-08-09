@@ -4,13 +4,23 @@ const allureReporter = require('@wdio/allure-reporter').default;
 const PageFactory = require('../utils/PageFactory');
 
 async function resetStateIfPossible() {
+  let currentUrl;
+
   try {
-    const currentUrl = await browser.getUrl();
-    if (currentUrl.includes('inventory.html')) {
-      await PageFactory.getPage('inventoryPage').resetAppState();
-    }
+    currentUrl = await browser.getUrl();
   } catch (error) {
-    // Browser may not have reached the inventory page (e.g. login itself failed) — nothing to reset.
+    // Session may already be closing — nothing to reset.
+    return;
+  }
+
+  if (!currentUrl.includes('inventory.html')) {
+    return;
+  }
+
+  try {
+    await PageFactory.getPage('inventoryPage').resetAppState();
+  } catch (error) {
+    console.error(`WARNING: failed to reset app state after scenario: ${error.message}`);
   }
 }
 
