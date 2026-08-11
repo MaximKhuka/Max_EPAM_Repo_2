@@ -52,7 +52,7 @@ Naming convention: class files use PascalCase matching their class name (e.g. `I
 
 ## BDD approach (Cucumber)
 
-This suite uses **real Cucumber** (`@wdio/cucumber-framework` + `@cucumber/cucumber`), not simulated BDD logging. Scenarios are written in Gherkin inside `.feature` files, completely separate from any implementation code:
+This suite uses **Cucumber** (`@wdio/cucumber-framework` + `@cucumber/cucumber`). Scenarios are written in Gherkin inside `.feature` files, completely separate from any implementation code:
 
 ```gherkin
 Scenario: Sort items by price ascending
@@ -62,7 +62,7 @@ Scenario: Sort items by price ascending
   Then the displayed item prices should be sorted in ascending order
 ```
 
-Each Gherkin line maps to a step definition in `src/step-definitions/`, which is the only place instance creation and page-object calls happen — feature files contain nothing but plain-language steps.
+Each Gherkin line maps to a step definition in `src/step-definitions/`, which is the only place instance creation and page-object calls happen - feature files contain nothing but plain-language steps.
 
 ## Sorting Validation logic (UC-1)
 
@@ -71,11 +71,11 @@ Each Gherkin line maps to a step definition in `src/step-definitions/`, which is
 3. A second array is built by copying that array and sorting it ascending with `[...prices].sort((a, b) => a - b)`.
 4. The step asserts the DOM-order array equals the independently-sorted array.
 
-This checks the *application's* actual sort behavior rather than hardcoding an expected price list — it stays valid even if the product catalog changes, and fails clearly if the UI's sort ever breaks.
+This checks the *application's* actual sort behavior rather than hardcoding an expected price list - it stays valid even if the product catalog changes, and fails clearly if the UI's sort ever breaks.
 
 ## Cart State Logic (UC-2)
 
-Parametrized via a Gherkin **Scenario Outline** with an `Examples:` table (`features/cart-state-logic.feature`) — this is the data provider requirement, expressed natively in Gherkin rather than a separate JS array:
+Parametrized via a Gherkin **Scenario Outline** with an `Examples:` table (`features/cart-state-logic.feature`) - this is the data provider requirement, expressed natively in Gherkin rather than a separate JS array:
 
 ```gherkin
 Examples:
@@ -96,7 +96,7 @@ For each row: two items are added, the cart badge is asserted to show `"2"`, one
 
 ## Error handling and failure artifacts
 
-Each assertion in the step definitions is wrapped in a try/catch that re-throws a descriptive error on failure (e.g. `"Cart badge did not show '2' after adding two items..."`). Additionally, `src/hooks/scenario-hooks.js` registers an `afterScenario` hook that, on any failed scenario, captures a screenshot to `error-shots/` and attaches it to the Allure report — so a failed run leaves visual evidence, not just a stack trace.
+Each assertion in the step definitions is wrapped in a try/catch that re-throws a descriptive error on failure (e.g. `"Cart badge did not show '2' after adding two items..."`). Additionally, `src/hooks/scenario-hooks.js` registers an `afterScenario` hook that, on any failed scenario, captures a screenshot to `error-shots/` and attaches it to the Allure report - so a failed run leaves visual evidence, not just a stack trace.
 
 ## Browser configuration
 
