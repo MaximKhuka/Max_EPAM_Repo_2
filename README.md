@@ -23,7 +23,7 @@ Locators: XPath (Focus on text-based selection)
 Parametrization: Use Data Provider for the items being added/removed  
 Documentation: Add a README.md explaining the sorting validation logic
 
-# Inventory Logic — WebdriverIO + Cucumber Test Suite
+# Inventory Logic - WebdriverIO + Cucumber Test Suite
 
 ## Project structure
 ```
